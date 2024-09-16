@@ -1,0 +1,435 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#232426;
+    background: #ffffff;
+    padding:28px 16px 120px 16px;
+    margin:0;
+}
+
+/* heading css */
+.package-headder-wrapper{
+    display: flex;
+    flex-direction:column;
+    row-gap:32px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.package-heading{
+    font-size: 16px;
+    font-weight:600;
+    color: #46484b;
+}
+/* heading css */
+/* plans tab */
+.plans-tab-wrapper{
+    display:flex;
+    align-items:center;
+    column-gap:10px;
+    border-radius: 8px;
+    border: 1px solid #000066;
+    padding:4px;
+    margin-top:24px;
+}
+.plans-tab-wrapper input{
+    display:none;
+}
+.plan-tab{
+    flex-grow:1;
+    text-align:center;
+    padding:10px;
+    border-radius: 8px;
+    font-size: 12px;
+    background:#ffffff;
+    color:#000066;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s ease-in-out;
+}
+input:checked + label.plan-tab{
+    background:#000066;
+    color:#ffffff;
+}
+/* plans tab */
+/* packages plan css */
+.package-input{
+    display:none;
+}
+.package-wrapper{
+    display:flex;
+    flex-direction:column;
+    row-gap:16px;
+    padding-top:24px;
+}
+.package-card{
+    display:block;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+    position:relative;
+    cursor:pointer;
+}
+/* create dynamic class for add dynamic color*/
+.package-card.silver{
+    background:rgba(96, 96, 255, 0.08);
+    border:0.5px solid rgba(96, 96, 255, 0.08);
+}
+.package-card.premium{ 
+    background:rgba(255, 177, 68, 0.08);
+    border:0.5px solid rgba(255, 177, 68, 0.08);
+}
+.package-card.platinum{
+    background:rgba(34, 178, 93, 0.08);
+    border:0.5px solid rgba(34, 178, 93, 0.08);
+}
+/* create dynamic class for add dynamic color*/
+.plan-pill{
+    display:inline-flex;
+    padding:5px 10px;
+    border-radius: 0px 30px 30px 0px;
+    margin:20px 0px 16px 0px;
+    font-size: 14px;
+    font-weight:600;
+    background: #22B25D;
+    color:#ffffff;
+}
+.most-popular{
+    align-items: center;
+    display: inline-flex;
+    column-gap: 4px;
+    border-radius: 20px;
+    background: #FFF;
+    padding: 5px 10px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+    font-size: 8px;
+    font-weight: 600;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    line-height:20px;
+}
+.most-popular img{
+    width: 11px;
+    height: 12px;
+    flex-shrink:0;
+}
+.check-mark{
+    background:#ffffff;
+    border-radius:50%;
+    position: absolute;
+    right: -9px;
+    top: -10px;
+    transition:0.2s ease-in-out;
+    visibility:hidden;
+}
+/* create dynamic class for add dynamic color*/
+.silver .check-mark{
+    color: #000066;
+    transition:0.2s ease-in-out;
+}
+.premium .check-mark{
+    color: #FFB144;
+    transition:0.2s ease-in-out;
+}
+.platinum .check-mark{
+    color: #22B25D;
+    transition:0.2s ease-in-out;
+}
+/* create dynamic class for add dynamic color*/
+
+input:checked+.package-card .check-mark{
+    visibility:visible;
+    transition:0.2s ease-in-out;
+}
+
+/* create dynamic class for add dynamic color*/
+input:checked+.package-card.silver{
+    border: 0.5px solid #000066;
+}
+input:checked+.package-card.premium{
+    border: 0.5px solid #FFB144;
+}
+input:checked+.package-card.platinum{
+    border: 0.5px solid #22B25D;
+}
+/* create dynamic class for add dynamic color*/
+input:checked+.package-card.active .expanded-content{
+    max-height:200px;
+}
+input:checked+.package-card.active .see-more-btn{
+    display:none;
+}
+.plan-title{
+    font-size: 10px;
+    padding-left: 10px;
+}
+.plan-specs{
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    justify-content: space-evenly;
+    color: #46484b;
+    padding: 16px 10px 16px 10px;
+}
+.plan-specs strong{ 
+    color:#000066;
+}
+.vertical-line-break{
+    width: 1px;
+    height: 27px;
+    background: #CACACA;
+}
+.charges-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #46484b;
+    padding: 0px 10px 20px 10px;
+}
+.charges-wrapper strong{
+    color:#000066;
+}
+.annual-price{
+    display:none;
+}
+.annual-package-selected .monthly-price{
+    display:none;
+}
+.annual-package-selected .annual-price{
+    display:inline-block;
+}
+.see-more-btn{
+    font-weight: 600;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    color:#000066;
+}
+.expanded-content{
+    max-height:0px;
+    transition: max-height 0.5s ease-out;
+    overflow:hidden;
+    padding: 0px 16px 0px 16px;
+}
+.plans-points-wrapper{
+    display: flex;
+    align-items: flex-end;
+    justify-content:space-between;
+    column-gap:10px;
+    font-size:10px;
+    padding-bottom:16px;
+}
+.plans-points-wrapper ol{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding-left: 10px;
+    margin-bottom:0px;
+}
+.plans-points-wrapper ol li {
+    padding-top: 4px;
+}
+.see-less-btn{
+    display: none;
+    align-items: center;
+    flex-shrink:0;
+    color: #000066;
+    font-weight: 600;
+    column-gap: 6px;
+    color:#000066;
+}
+.see-less-btn svg {
+    transform: rotate(180deg);
+}
+.package-card.active .see-less-btn{
+    display:flex;
+}
+.package-card.active .see-more-btn{
+    display:none;
+}
+.button-wrapper{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #FFF;
+    box-shadow: 0px -2px 16px 0px rgba(0, 0, 0, 0.10);
+    padding: 16px;
+}
+.subscribe-btn{
+    border-radius: 50px;
+    background: #22B25D;
+    padding: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap:10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-family: 'Open Sans';
+}
+.subscribe-btn:disabled{
+    background: #868E96;
+    color:#ffffff;
+}
+/* filter css */
+.filter-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF !important;
+    border-top-color: transparent !important;
+    animation: loading 1s linear infinite;
+}
+/* package plans css */
+
+/* modal css */
+.modal {
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.show-modal{
+    display:flex;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+}
+.hide-modal{
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+}
+/* Modal Content/Box */
+.modal-content {
+    position: absolute;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 12px;
+    animation-name: fadeIn;
+    animation-duration: 0.5s; 
+}
+/* The Close Button */
+.close {
+    color: #232426;
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.modal-inner-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.modal-subscription-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight:400;
+    row-gap:12px;
+}
+.subs-modal-wrapper{
+    display:flex;
+    align-items:center;
+    column-gap:16px;
+    font-weight:600;
+    color:#46484b;
+}
+.modal-subscription-wrapper .line-break{
+    width:100%;
+    margin-bottom:0px;
+}
+.subs-charges-wrapper{
+    font-size:14px;
+}
+.subs-charges-wrapper strong{
+    color:#000066;
+}
+.confirm-btn{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 14px;
+    font-size:16px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 12px;
+    background: #8CC63E;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-top: 4px;
+}
+.activate-wrapper,.not-activate-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction:column;
+    margin:0 auto;
+    font-size:14px;
+    font-weight:400;
+    max-width: 227px;
+    padding:12px 0px 4px 0px;
+}
+.activate-wrapper{
+    row-gap:16px;
+    line-height: 26px;
+}
+.modal-status-img{
+    filter: drop-shadow(0px 8px 25px rgba(42, 211, 82, 0.50));
+}
+@media only screen and (min-width: 992px){
+    .modal-content {
+        max-width:360px;
+        padding: 40px;
+    }
+    .modal-inner-content{
+        row-gap: 24px;
+        font-size: 22px;
+    }
+}
+/* modal css */
